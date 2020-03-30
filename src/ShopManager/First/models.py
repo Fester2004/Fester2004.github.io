@@ -3,26 +3,26 @@ from django.db import models
 
 class Shop(models.Model):
     name = models.CharField(max_length=20, help_text="Shop's name")
-    balance = models.IntegerField(max_length=12, help_text="Shop's balance")
+    balance = models.IntegerField(help_text="Shop's balance")
     date_of_create = models.DateField(help_text='Date of creating')
     type_of_shop = models.CharField(max_length=10,)
 
 
     def __str__(self):
-        return  self.name
+        return self.name
 
 
 class Director(models.Model):
     name = models.CharField(max_length=10, help_text="Director's name")
     surname = models.CharField(max_length=10, help_text="Director's surname")
-    age = models.IntegerField(max_length=3, help_text="Director's age")
+    age = models.IntegerField(help_text="Director's age")
 
 
 class Personal(models.Model):
     name = models.CharField(max_length=10, help_text="Your's name")
-    age = models.IntegerField(max_length=3, help_text="Your's age")
-    experiance = models.IntegerField(max_length=3, help_text="Your's experiance")
-    want_earn = models.IntegerField(max_length=4, help_text="How many do you want earn")
+    age = models.IntegerField(help_text="Your's age")
+    experiance = models.IntegerField(help_text="Your's experiance")
+    want_earn = models.IntegerField(help_text="How many do you want earn")
     type_of_work = models.CharField(max_length=10, help_text="What kind of job do you want do")
     # choice(name, experiance,
     #        want_earn, type_of_work)
