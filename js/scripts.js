@@ -94,13 +94,57 @@
         });
     });
     $(".timeline-image").click(function (){
-        $(this).css({ borderColor: "#1DB700"});
+        $(this).css({
+            borderColor: "#1DB700",
+        });
+        let rightR = Math.floor(Math.random()*30);
+        let leftR = Math.floor(Math.random()*30);
+        $(this).parent().animate({
+            marginRight: rightR + "%",
+            marginLeft: leftR + "%",
+        });
     });
     $(".btn-social").attr({
         title:'CONTACT US',
     }).tooltip({
         show: { effect: "blind", duration: 800 },
         close:"destroy",
+    });
+    $("#sendMessageButton").click(function (){
+        let name_input = $("#name").val();
+        let email_input = $("#email").val();
+        let phone_input = $("#phone").val();
+        let message_input = $("#message").val();
+        if(name_input && email_input && phone_input && message_input){
+            console.log(name_input + "\n" + phone_input + "\n" +email_input + "\n" + message_input);
+        }
+    });
+    $(".modal-body").append("<a class='btn btn-primary bold-text'>Bold Text</a>");
+    $(".bold-text").click(function (){
+        if($(this).text() === "Bold Text" ){
+            $("body").css({fontWeight: "bold"});
+            $(this).text("Normal Text");
+        }else {
+            $("body").css({fontWeight: "normal"});
+            $(this).text("Bold Text");
+        }
+    });
+    $(".portfolio-item").hover(
+        function (){
+            $(this).toggleClass("scale");
+        },
+        function (){
+            $(this).toggleClass("scale");
+        });
+    $("#hideShow").click(function (){
+        if($(this).text() === "Hide" ){
+            $(this).text("Show").attr("href","#porfolio");
+            $("#about").hide(2000);
+
+        }else {
+            $(this).text("Hide").attr("href","#about");
+            $("#about").show(2000);
+        }
     });
 
 })(jQuery); // End of use strict
