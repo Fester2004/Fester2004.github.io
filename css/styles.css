@@ -10513,4 +10513,17 @@ section#contact form#contactForm :-ms-input-placeholder {
 .scale{
   transform: scale(1.2);
 }
+#bold-menu{
+  color:white;
+  transition: all 0.5s ease;
+  background-color:#b3b7bb;
+  padding:3px;
+  opacity: 50%;
+  border-radius: 20px;
+}
+#bold-menu:hover{
+  color:white;
+  opacity: 100%;
+  background-color: #8a8e92;
+}
 

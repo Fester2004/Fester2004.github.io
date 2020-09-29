@@ -6,7 +6,7 @@
     (function ($) {
     "use strict"; // Start of use strict
 
-    // Smooth scrolling using jQuery easing
+        // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
         if (
             location.pathname.replace(/^\//, "") ==
@@ -74,11 +74,16 @@
             color:"#fed136",
             webkitTextStroke: "0.5px black",
 
+
+        }).animate({
+            fontSize:"30pt",
         });
     },function (){
         $(this).css({
             color:"white",
             webkitTextStroke: "0",
+        }).animate({
+            fontSize:"35pt",
         });
     });
     $(".navbar-brand").hover(function () {
@@ -116,17 +121,20 @@
         let phone_input = $("#phone").val();
         let message_input = $("#message").val();
         if(name_input && email_input && phone_input && message_input){
-            console.log(name_input + "\n" + phone_input + "\n" +email_input + "\n" + message_input);
+            alert("Name:"+name_input+"\n"+"Email:"+email_input+"\n"+"Phone:"+phone_input+"\n"+"Message:"+message_input);
         }
     });
     $(".modal-body").append("<a class='btn btn-primary bold-text'>Bold Text</a>");
+    var bold_text = false;
     $(".bold-text").click(function (){
-        if($(this).text() === "Bold Text" ){
+        if(!bold_text){
             $("body").css({fontWeight: "bold"});
+            bold_text = true;
             $(this).text("Normal Text");
         }else {
             $("body").css({fontWeight: "normal"});
             $(this).text("Bold Text");
+            bold_text = false;
         }
     });
     $(".portfolio-item").hover(
@@ -146,5 +154,21 @@
             $("#about").show(2000);
         }
     });
-
+    $("#bold-menu").click(function (){
+        if(!bold_text){
+            $("body").css({fontWeight: "bold"});
+            bold_text = true;
+            $(this).css({
+                color:"black",
+                background:"#b3b7bb",
+            });
+        }else {
+            $("body").css({fontWeight: "normal"});
+            bold_text = false;
+            $(this).css({
+                color:"white",
+                backgroundColor:"#8a8e92",
+            });
+        }
+    })
 })(jQuery); // End of use strict
